@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gıda İhbar</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="header-row">
+        <div>
+          <h1>GIDA İHBAR</h1>
+          <p>Galeri, senaryo ve duyurular</p>
+        </div>
+        <div class="header-actions">
+          <button id="notifyBtn" class="notify-btn" aria-label="Duyurular" title="Duyurular">🔔<span id="notifyBadge" class="badge" hidden>0</span></button>
+          <button id="themeToggle" class="theme-toggle" aria-label="Tema" title="Tema">🌙</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Galeri</h2>
+        <div id="carousel" class="carousel">
+          <button id="carPrev" class="car-prev" aria-label="Önceki">‹</button>
+          <img id="carouselImage" alt="Görsel" />
+          <button id="carNext" class="car-next" aria-label="Sonraki">›</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Kullanım Senaryosu</h2>
+        <div id="scenarioView" class="scenario-view"></div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <small>© <span id="year"></span> Gıda İhbar</small>
+    </footer>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lb-close" aria-label="Kapat">×</button>
+      <button class="lb-prev" aria-label="Önceki">‹</button>
+      <button class="lb-next" aria-label="Sonraki">›</button>
+      <div class="lb-stage">
+        <img id="lightboxImage" alt="Görsel" />
+        <div id="lightboxCaption" class="lb-caption"></div>
+        <div id="lightboxCounter" class="lb-counter"></div>
+      </div>
+    </div>
+
+    <!-- Notifications Panel -->
+    <div id="notifyPanel" class="notify-panel" aria-hidden="true">
+      <div class="notify-content">
+        <div class="notify-header">
+          <h3>Duyurular</h3>
+          <button id="notifyClose" class="notify-close" aria-label="Kapat">×</button>
+        </div>
+        <ul id="notifyList" class="notify-list"></ul>
+      </div>
+    </div>
+
+    <!-- Announcement Modal -->
+    <div id="annModal" class="ann-modal" aria-hidden="true">
+      <div class="ann-card">
+        <div class="ann-main" id="annMsg"></div>
+        <div class="ann-meta">
+          <span id="annDate" class="left"></span>
+          <span id="annBy" class="right"></span>
+        </div>
+        <button id="annClose" class="ann-close" aria-label="Kapat">×</button>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

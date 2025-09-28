@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gıda İhbar • Yönetim</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="header-row">
+        <div>
+          <h1>Yönetim Paneli</h1>
+          <p class="muted">Giriş yapın ve içerikleri yönetin</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Login -->
+      <section id="loginSection" class="card">
+        <h2>Giriş</h2>
+        <form id="loginForm" class="admin-form">
+          <label>Kullanıcı adı<input id="username" type="text" autocomplete="username" required /></label>
+          <label>Şifre<input id="password" type="password" autocomplete="current-password" required /></label>
+          <div class="actions">
+            <button type="submit">Giriş Yap</button>
+            <span id="loginStatus" class="status"></span>
+          </div>
+        </form>
+      </section>
+
+      <!-- Panel -->
+      <section id="panelSection" class="card" hidden>
+        <div class="admin-topbar">
+          <nav class="tabs">
+            <button data-tab="annTab" class="tab active">Duyuru Gönder</button>
+            <button data-tab="imgTab" class="tab">Görseller</button>
+            <button data-tab="scnTab" class="tab">Senaryo</button>
+          </nav>
+          <button id="logoutBtn" class="danger">Çıkış</button>
+        </div>
+
+        <!-- Announcements -->
+        <div id="annTab" class="tab-pane">
+          <h3>Duyuru Gönder</h3>
+          <form id="announceForm" class="admin-form">
+            <label>Mesaj<input id="announceInput" type="text" placeholder="Kısa duyuru mesajı" required /></label>
+            <div class="actions">
+              <button type="submit">Gönder</button>
+              <span id="announceStatus" class="status"></span>
+            </div>
+          </form>
+          <div class="divider"></div>
+          <h4>Son Duyurular</h4>
+          <ul id="annList" class="notify-list"></ul>
+        </div>
+
+        <!-- Images -->
+        <div id="imgTab" class="tab-pane" hidden>
+          <h3>Görseller</h3>
+          <form id="uploadForm" class="admin-form">
+            <label>Görsel(ler)
+              <input id="fileInput" type="file" accept="image/*" multiple />
+            </label>
+            <div class="actions">
+              <button type="submit">Yükle</button>
+              <span id="uploadStatus" class="status"></span>
+            </div>
+          </form>
+          <div class="image-list" id="imageList"></div>
+        </div>
+
+        <!-- Scenario -->
+        <div id="scnTab" class="tab-pane" hidden>
+          <h3>Senaryo (scenario.md)</h3>
+          <textarea id="mdEditor" rows="18" placeholder="Markdown içeriği"></textarea>
+          <div class="actions">
+            <button id="saveMd">Kaydet</button>
+            <span id="mdStatus" class="status"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container footer"><small class="muted">© <span id="year"></span> Gıda İhbar</small></footer>
+    <script type="module" src="/admin.js"></script>
+  </body>
+</html>
